@@ -14,6 +14,6 @@ It looks like the build of nginx is using /run/nginx/nginx.pid for the default P
 	TLS SNI support enabled
 	configure arguments: --prefix=/var/lib/nginx --sbin-path=/usr/sbin/nginx --conf-path=/etc/nginx
 
-Conclution:
+Conclusion:
 
 	Created a directory in /run/nginx the error is resolved.
