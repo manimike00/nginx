@@ -1,0 +1,19 @@
+Errors:
+
+	nginx: [emerg] open() "/run/nginx/nginx.pid" failed (2: No such file or directory) in alpine
+
+Solution:
+	
+It looks like the build of nginx is using /run/nginx/nginx.pid for the default PID location. You can either create /run/nginx, or override the PID location, e.g. nginx -g 'pid /tmp/nginx.pid; daemon off;'
+
+	You can check configure options on nginx with -V - e.g.
+
+	bash-4.3# nginx -V
+	nginx version: nginx/1.10.1
+	built with OpenSSL 1.0.2h  3 May 2016
+	TLS SNI support enabled
+	configure arguments: --prefix=/var/lib/nginx --sbin-path=/usr/sbin/nginx --conf-path=/etc/nginx
+
+Conclution:
+
+	Created a directory in /run/nginx the error is resolved.
